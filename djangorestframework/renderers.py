@@ -316,6 +316,7 @@ class DocumentingTemplateRenderer(BaseRenderer):
 
         content = self._get_content(self.view, self.view.request, obj, media_type)
 
+        get_form_instance = self._get_form_instance(self.view, 'get')
         put_form_instance = self._get_form_instance(self.view, 'put')
         post_form_instance = self._get_form_instance(self.view, 'post')
 
@@ -342,6 +343,7 @@ class DocumentingTemplateRenderer(BaseRenderer):
             'version': VERSION,
             'breadcrumblist': breadcrumb_list,
             'available_formats': self.view._rendered_formats,
+            'get_form': get_form_instance,
             'put_form': put_form_instance,
             'post_form': post_form_instance,
             'FORMAT_PARAM': self._FORMAT_QUERY_PARAM,
